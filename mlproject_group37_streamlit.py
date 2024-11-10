@@ -3,7 +3,7 @@
 #        André Silvestre, 20240502 | João Henriques, 20240499 | Simone Genovese, 20241459
 #        Steven Carlson, 20240554 | Vinícius Pinto, 20211682 | Zofia Wojcik, 20240654
 # =============================================================================
-# streamlit run mlproject_group37_streamlit.py
+# streamlit run mlproject_group33_streamlit.py
 
 # Import necessary libraries
 import streamlit as st
@@ -103,7 +103,7 @@ st.markdown("""
 
     <!-- Banner Image -->
     <div class="banner">
-        <img src='./app/static/ABCDEats_Banner.png' alt="Banner Image">
+        <img src='./app/static/WCB_Group33_Banner.png' alt="Banner Image">
     </div>
     """, unsafe_allow_html=True)
 
@@ -239,7 +239,7 @@ st.markdown("""
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p class="company-name" style="color: #d3d3d3;">ML Project | Group 37 © 2024/25</p>
+                    <p class="company-name" style="color: #d3d3d3;">ML Project | Group 33 © 2024/25</p>
                 </div>
             </div>
         </div>
