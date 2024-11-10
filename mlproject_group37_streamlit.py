@@ -10,13 +10,14 @@ import streamlit as st
 import pandas as pd
 import mlproject_dashboard_functions
 import plotly.express as px
+import pickle
 
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # ---- Streamlit Page Config ----
 st.set_page_config(page_title='ML Project | WCB - Group 33 | 2024/25',
-                   page_icon='https://upload.wikimedia.org/wikipedia/en/6/69/NOVA_IMS_Logo.png',
+                   page_icon='./static/Logo-Nova-IMS-White.png',
                    layout='wide',
                    initial_sidebar_state='expanded',
                    menu_items={
@@ -255,11 +256,13 @@ st.markdown("""
 
 # =============================================================================
 # --------------------------- Load Data ---------------------------
+# Load the data
+# data = pd.read_csv('data/FinalData.csv')
 
-
-
-
-
+# Source: https://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/
+# Load the model from disk
+filename = './BestModel_11.11.2024.sav'
+loaded_model = pickle.load(open(filename, 'rb'))
 
 
 # =============================================================================
@@ -276,4 +279,69 @@ with st.sidebar:
 tab1, tab2 = st.tabs(["Model Prediction", "Data Analysis"])
 
 with tab1:
-    st.write("### EDA | Exploratory Data Analysis")
+    st.write("### Model Prediction")
+
+    # Define input fields for the user
+    st.write("#### Input the following details:")
+
+    # Numeric inputs
+    c3_date_binary = st.number_input("C-3 Date Binary", min_value=0, max_value=1, step=1)
+    first_hearing_date_binary = st.number_input("First Hearing Date Binary", min_value=0, max_value=1, step=1)
+    age_at_injury_clean = st.number_input("Age at Injury Clean", min_value=0)
+    weekly_wage_reported = st.number_input("Weekly Wage Reported", min_value=0.0)
+    ime4_reported = st.number_input("IME-4 Reported", min_value=0.0)
+    c2_date_year = st.number_input("C-2 Date Year", min_value=1900, max_value=2100, step=1)
+
+    # Binary input
+    attorney_representative_y = st.selectbox("Attorney/Representative", options=[0, 1])
+
+    # Injury cause selection
+    wcio_cause_of_injury = st.selectbox("WCIO Cause of Injury", options=[
+        '1 - Temp', '2 - Caught', '3 - Cut', '4 - Fall', '5 - Motor Vehicle',
+        '6 - Strain_data', '7 - Striking', '8 - Struck', '9 - Rubbed', '10 - Miscellaneous'
+    ])
+
+    # Part of body selection
+    wcio_part_of_body = st.selectbox("WCIO Part of Body", options=[
+        'I - Head', 'II - Neck', 'III - Upper Extremities', 'IV - Trunk',
+        'V - Lower Extremities', 'VI - Multiple Body Parts'
+    ])
+
+    # Map selections to binary variables
+    wcio_cause_of_injury_dict = {
+        '1 - Temp': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        '2 - Caught': [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        '3 - Cut': [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        '4 - Fall': [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        '5 - Motor Vehicle': [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        '6 - Strain_data': [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+        '7 - Striking': [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        '8 - Struck': [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+        '9 - Rubbed': [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        '10 - Miscellaneous': [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+    }
+
+    wcio_part_of_body_dict = {
+        'I - Head': [1, 0, 0, 0, 0, 0],
+        'II - Neck': [0, 1, 0, 0, 0, 0],
+        'III - Upper Extremities': [0, 0, 1, 0, 0, 0],
+        'IV - Trunk': [0, 0, 0, 1, 0, 0],
+        'V - Lower Extremities': [0, 0, 0, 0, 1, 0],
+        'VI - Multiple Body Parts': [0, 0, 0, 0, 0, 1]
+    }
+
+    # Prepare input data for prediction
+    input_data = [
+        c3_date_binary, first_hearing_date_binary, age_at_injury_clean,
+        weekly_wage_reported, ime4_reported, c2_date_year, attorney_representative_y
+    ] + wcio_cause_of_injury_dict[wcio_cause_of_injury] + wcio_part_of_body_dict[wcio_part_of_body]
+
+    # Predict button
+    if st.button("Predict"):
+        prediction = loaded_model.predict([input_data])
+        st.write(f"Prediction: {prediction[0]}")
+
+
+
+with tab2:
+    st.write("### Data Analysis")
