@@ -62,7 +62,31 @@ with open('style.css') as f:
                         border: 2px solid #084594;
                     }}
 
-            </style>''', unsafe_allow_html=True)
+                    button[kind="secondary"]:focus {{
+                        font-weight: bold;
+                        color: #084594;
+                        border: 2px solid #084594;
+                    }}
+
+                    button[kind="secondary"]:active {{
+                        font-weight: bold;
+                        color: #fff;
+                        background-color: #084594;
+                        border: 2px solid #084594;
+                    }}  
+                
+                    button[role="secondary"]:target {{
+                        font-weight: bold;
+                        color: #084594;
+                        border: 2px solid #084594;
+                    }}
+
+                    button[role="secondary"]:selected {{
+                        font-weight: bold;
+                        color: #084594;
+                        border: 2px solid #084594;
+                    }}
+                </style>''', unsafe_allow_html=True)
 
 st.logo(image='static/640px-HD_transparent_picture.png', icon_image='static/Logo-Nova-IMS-Black.png')
 
@@ -285,15 +309,26 @@ with tab1:
     st.write("#### Input the following details:")
 
     # Numeric inputs
-    c3_date_binary = st.number_input("C-3 Date Binary", min_value=0, max_value=1, step=1)
-    first_hearing_date_binary = st.number_input("First Hearing Date Binary", min_value=0, max_value=1, step=1)
-    age_at_injury_clean = st.number_input("Age at Injury Clean", min_value=0)
-    weekly_wage_reported = st.number_input("Weekly Wage Reported", min_value=0.0)
-    ime4_reported = st.number_input("IME-4 Reported", min_value=0.0)
+    age_at_injury_clean = st.number_input("Age at Injury Clean", min_value=0, max_value=150, step=1)
     c2_date_year = st.number_input("C-2 Date Year", min_value=1900, max_value=2100, step=1)
 
-    # Binary input
-    attorney_representative_y = st.selectbox("Attorney/Representative", options=[0, 1])
+    # Binary input with "Yes" or "No" options
+    c3_date_binary = st.selectbox(label="C-3 Date Binary", 
+                                  options=["No", "Yes"], 
+                                  help="Was the C-3 date reported?", 
+                                  placeholder="Select an option", 
+                                  label_visibility="visible")
+    first_hearing_date_binary = st.selectbox("First Hearing Date Binary", options=["No", "Yes"])
+    attorney_representative_y = st.selectbox("Attorney/Representative", options=["No", "Yes"])
+    weekly_wage_reported = st.selectbox("Weekly Wage Reported", options=["No", "Yes"])
+    ime4_reported = st.selectbox("IME-4 Reported", options=["No", "Yes"])
+
+    # Convert "Yes" or "No" to binary values
+    c3_date_binary = 1 if c3_date_binary == "Yes" else 0
+    first_hearing_date_binary = 1 if first_hearing_date_binary == "Yes" else 0
+    attorney_representative_y = 1 if attorney_representative_y == "Yes" else 0
+    weekly_wage_reported = 1 if weekly_wage_reported == "Yes" else 0
+    ime4_reported = 1 if ime4_reported == "Yes" else 0
 
     # Injury cause selection
     wcio_cause_of_injury = st.selectbox("WCIO Cause of Injury", options=[
@@ -339,9 +374,20 @@ with tab1:
     # Predict button
     if st.button("Predict"):
         prediction = loaded_model.predict([input_data])
-        st.write(f"Prediction: {prediction[0]}")
 
+        claim_injury_type_dict_swapped = {1: "1. CANCELLED", 2: "2. NON-COMP", 3: "3. MED ONLY", 4: "4. TEMPORARY",
+                                  5: "5. PPD SCH LOSS", 6: "6. PPD NSL", 7: "7. PTD", 8: "8. DEATH"}
+        
+        prediction_text = claim_injury_type_dict_swapped[prediction[0]]
 
+        st.markdown(f"""
+              <div style='justify-content: center; align-items: center; height: 15rem;margin-top: 2em;'>
+                  <div style='border: 2px solid #084594; border-radius: 20px; background-color: #f3f9ff;'>
+                      <h2 style='color: #084594; text-align: center;'>Prediction Result</h2>
+                      <p style='font-size: 18px; font-weight: bold; color: #3d392d; text-align: center;'>{prediction_text}</p>
+                  </div>
+              </div>
+          """, unsafe_allow_html=True)
 
 with tab2:
     st.write("### Data Analysis")

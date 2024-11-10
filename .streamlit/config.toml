@@ -8,7 +8,7 @@ enableStaticServing = true
 base="dark"
 
 # Primary accent color for interactive elements.
-primaryColor="#E60001"
+primaryColor="#084594"
 
 # Background color for the main content area.
 backgroundColor="#ffffff"
