@@ -63,7 +63,7 @@ with open('style.css') as f:
 
             </style>''', unsafe_allow_html=True)
 
-st.logo(image='static/640px-HD_transparent_picture.png', icon_image='static/NOVAIMS_Logo.png')
+st.logo(image='static/640px-HD_transparent_picture.png', icon_image='static/Logo-Nova-IMS-Black.png')
 
 # =============================================================================
 # -----------------------------
