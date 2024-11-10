@@ -216,20 +216,19 @@ st.markdown("""
             <div class="row justify-content-center" style="margin-bottom: -40px">
                 <div class="col-md-7 text-center">
                     <h1 class="mb-0 title-contactos"></h1>
-                    <p class="subtitle-title">Motivação</p>
+                    <p class="subtitle-title">Title</p>
                 </div>
                 <br><br>
                 <p style="text-align: justify; max-width: 800px; margin: auto;">
-                    No dinâmico mercado das Telecomunicações, a análise de dados provenientes de redes sociais revela-se 
-                    um recurso inestimável para as equipas de Marketing e Comunicação.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum justo sed fringilla blandit. 
+                    In non purus at magna convallis malesuada. Sed ornare velit massa, eu ultricies augue auctor in. 
                     <br><br>
-                    Este projeto, destinado a estudantes de Data Science, visa explorar tal potencial. 
-                    A relevância destes dados reside na sua capacidade de elucidar as necessidades, 
-                    preferências, comportamentos e níveis de satisfação dos utilizadores de uma operadora 
-                    de telecomunicações, que opera num ambiente bastante competitivo. 
+                    Nunc suscipit, arcu non ultrices cursus, ex mauris elementum arcu, sed tempus lectus purus tempor enim. 
+                    Sed tincidunt enim lacus, sit amet scelerisque leo imperdiet et. Morbi vel congue ante, vitae commodo magna. 
+                    Praesent commodo dolor vel mi fermentum condimentum. Curabitur rutrum massa quis metus mattis scelerisque. 
+                    Nunc accumsan tempor est, sed finibus odio egestas vel. Fusce eu dui eget erat volutpat ultricies ut non quam.
                     <br><br>
-                    Adicionalmente, possibilita a identificação de novas oportunidades, tendências e 
-                    desafios inerentes ao setor.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum justo sed fringilla blandit
                 </p>
                 <br><br><br>
             </div>
@@ -274,7 +273,7 @@ with st.sidebar:
 # --------------------------- Main Content ---------------------------
 # Tabs
 
-tab1, tab2 = st.tabs(["Dashboard", "Data Analysis"])
+tab1, tab2 = st.tabs(["Model Prediction", "Data Analysis"])
 
 with tab1:
     st.write("### EDA | Exploratory Data Analysis")
