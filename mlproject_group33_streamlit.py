@@ -301,7 +301,7 @@ train_data, test_data = load_data()
 
 # Source: https://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/
 # Load the model
-# @st.cache_resource
+@st.cache_resource
 def init_model():
     with gzip.open('BestModel_Compressed.sav.gz', 'rb') as f:
         loaded_model = pickle.load(f)
