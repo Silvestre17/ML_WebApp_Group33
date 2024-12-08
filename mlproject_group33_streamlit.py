@@ -303,7 +303,7 @@ train_data, test_data = load_data()
 # Load the model
 @st.cache_resource
 def init_model():
-    with gzip.open('../[ML]_WebApp_Group33/BestModel_Compressed.sav.gz', 'rb') as f:
+    with gzip.open('BestModel_Compressed.sav.gz', 'rb') as f:
         loaded_model = pickle.load(f)
     return loaded_model
 
