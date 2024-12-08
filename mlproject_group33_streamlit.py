@@ -294,7 +294,7 @@ claim_injury_type_palette_original = dict(zip(sorted(claim_injury_type_dict_swap
 # @st.cache_resource
 def load_data():
     train_data = pd.read_parquet("./train_data_cleaned.parquet")
-    return train_data, test_data
+    return train_data
 
 train_data = load_data()
 
