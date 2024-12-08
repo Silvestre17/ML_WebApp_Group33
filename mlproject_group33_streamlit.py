@@ -291,13 +291,12 @@ claim_injury_type_palette_original = dict(zip(sorted(claim_injury_type_dict_swap
 # =============================================================================
 # --------------------------- Load Data ---------------------------
 # Load the data
-@st.cache_resource
+# @st.cache_resource
 def load_data():
     train_data = pd.read_parquet("./train_data_cleaned.parquet")
-    test_data = pd.read_parquet("./test_data_cleaned.parquet")
     return train_data, test_data
 
-train_data, test_data = load_data()
+train_data = load_data()
 
 # Source: https://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/
 # Load the model
