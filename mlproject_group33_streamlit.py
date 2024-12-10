@@ -243,7 +243,7 @@ st.markdown("""
             <div class="row justify-content-center" style="margin-bottom: -40px">
                 <div class="col-md-7 text-center">
                     <h1 class="mb-0 title-contactos"></h1>
-                    <p class="subtitle-title">Title</p>
+                    <p class="subtitle-title">To Grant or Not To Grant: Deciding on Compensation Benefits</p>
                 </div>
                 <br><br>
                 <p style="text-align: justify; max-width: 800px; margin: auto;">
@@ -315,7 +315,7 @@ with st.sidebar:
     st.image('./static/Logo-Nova-IMS-Black.png', width=100)
     
     # Sidebar Title
-    st.markdown("<h1 style='color: #084594; font-weight: bold;'>WCB - Group 33</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color: #084594; font-weight: bold;'>WCB</h1>", unsafe_allow_html=True)
     st.markdown("<h2 style='color: #4984d2; font-weight: bold;'>2024/25</h2>", unsafe_allow_html=True)
     
     # Disclamer and Instructions to the User 
