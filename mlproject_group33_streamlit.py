@@ -300,13 +300,11 @@ train_data = load_data()
 
 # Source: https://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/
 # Load the model
-# @st.cache_resource # [If we have more resources, we can use this]
+@st.cache_resource # [If we have more resources, we can use this]
 def init_model():
     with gzip.open('BestModel_Compressed.sav.gz', 'rb') as f:
         loaded_model = pickle.load(f)
     return loaded_model
-
-best_model = init_model()
 
 # =============================================================================
 # --------------------------- Sidebar ---------------------------
@@ -549,6 +547,9 @@ with tab1:
     
     # Predict button
     if st.button("Predict"):
+        
+        # Load the model
+        best_model = init_model()
         
         # Prediction
         prediction = best_model.predict([list(input_data_dict.values())])
