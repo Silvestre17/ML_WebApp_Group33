@@ -291,7 +291,7 @@ claim_injury_type_palette_original = dict(zip(sorted(claim_injury_type_dict_swap
 # =============================================================================
 # --------------------------- Load Data ---------------------------
 # Load the data
-# @st.cache_data # [If we have more resources, we can use this]
+@st.cache_data # [If we have more resources, we can use this]
 def load_data():
     train_data = pd.read_parquet("./train_data_cleaned.parquet")
     return train_data
@@ -300,7 +300,7 @@ train_data = load_data()
 
 # Source: https://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/
 # Load the model
-@st.cache_resource # [If we have more resources, we can use this]
+# @st.cache_resource # [If we have more resources, we can use this]
 def init_model():
     with gzip.open('BestModel_Compressed.sav.gz', 'rb') as f:
         loaded_model = pickle.load(f)
