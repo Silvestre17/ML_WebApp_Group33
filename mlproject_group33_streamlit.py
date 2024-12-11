@@ -554,15 +554,15 @@ with tab1:
         
         # Prediction
         prediction = best_model.predict([list(input_data_dict.values())])
-        prediction_text = claim_injury_type_dict_swapped[prediction[0]]
+        prediction_text = claim_injury_type_dict_swapped[int(prediction[0])]
         
         # Prediction Score
         probabilities = best_model.predict_proba([list(input_data_dict.values())])
-        predicted_class_index = list(claim_injury_type_dict_swapped.keys()).index(prediction[0])
+        predicted_class_index = list(claim_injury_type_dict_swapped.keys()).index(int(prediction[0]))
         prediction_score = probabilities[0][predicted_class_index]
         
         # Prediction Color
-        prediction_color = claim_injury_type_palette[prediction[0]]  # Get the color for the predicted class
+        prediction_color = claim_injury_type_palette[int(prediction[0])]  # Get the color for the predicted class
 
         # Display the prediction result
         st.markdown(f"""
