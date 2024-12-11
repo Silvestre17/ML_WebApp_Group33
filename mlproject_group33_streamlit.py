@@ -302,7 +302,8 @@ train_data = load_data()
 # Load the model
 # @st.cache_resource # [If we have more resources, we can use this]
 def init_model():
-    with gzip.open('BestModel_Compressed.sav.gz', 'rb') as f:
+    # with gzip.open('BestModel_RandomForest_Compressed.sav.gz', 'rb') as f:        # Random Forest Model
+    with gzip.open('BestModel_CatBoost_Compressed.sav.gz', 'rb') as f:               # CatBoost Model
         loaded_model = pickle.load(f)
     return loaded_model
 
