@@ -246,16 +246,14 @@ st.markdown("""
                     <p class="subtitle-title">To Grant or Not To Grant: Deciding on Compensation Benefits</p>
                 </div>
                 <br><br>
-                <p style="text-align: justify; max-width: 800px; margin: auto;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum justo sed fringilla blandit. 
-                    In non purus at magna convallis malesuada. Sed ornare velit massa, eu ultricies augue auctor in. 
-                    <br><br>
-                    Nunc suscipit, arcu non ultrices cursus, ex mauris elementum arcu, sed tempus lectus purus tempor enim. 
-                    Sed tincidunt enim lacus, sit amet scelerisque leo imperdiet et. Morbi vel congue ante, vitae commodo magna. 
-                    Praesent commodo dolor vel mi fermentum condimentum. Curabitur rutrum massa quis metus mattis scelerisque. 
-                    Nunc accumsan tempor est, sed finibus odio egestas vel. Fusce eu dui eget erat volutpat ultricies ut non quam.
-                    <br><br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum justo sed fringilla blandit
+                <p style="text-align: justify; margin: auto;"><br>
+                    The developed web application serves as a practical tool to automate the claim analysis process for the <b>New York Workers Compensation Board (NWCB)</b>. Built using the <a href="https://streamlit.io/" style="color: #2f3338;">Streamlit library</a>, the application provides an interactive platform for both prediction and data exploration functionalities.<br><br>
+                    The web application has two primary components:<br><br>
+                    <ol style="margin-left: 20px;">
+                        <li><b>Prediction Interface:</b> This allows users to input claim-related data and receive predictions based on the best-performing CatBoost model. The interface ensures that users can easily obtain predictions for the severity of claims in real-time, providing actionable insights to support decision-making.</li>
+                        <li><b>Data Exploration Section:</b> Users can interactively explore the cleaned dataset, visualizing key insights such as trends and relationships between variables. This functionality enhances the understanding of claim data and facilitates strategic decision-making.</li>
+                    </ol>
+                    During development, a significant challenge was managing resource limitations, as the complexity of the model caused the application to crash. This issue was resolved by optimizing the application's performance and obtaining additional computational resources. As a result, the final version of the application is now stable, allowing for efficient live predictions and in-depth data exploration. This application highlights the practical value of machine learning in streamlining the NWCB's claim analysis process, showcasing its utility for both operational and academic purposes.
                 </p>
                 <br><br><br>
             </div>
@@ -335,8 +333,8 @@ with st.sidebar:
             <center><p style="font-size: 14px;"><i>The results presented here are based on the data provided by the WCB and the model developed by the group. <br>
                 This result can be used as a reference, but it is not a substitute for professional advice. </i></p> </center> <br><br>
             <p><b>Instructions:</b> Use the tabs below to make a prediction or analyze the data. <br>
-                If you have any questions or need to know how to fill in the fields, please read the 
-                <a href="https://data.ny.gov/Government-Finance/Assembled-Workers-Compensation-Claims-Beginning-20/jshw-gkgu/about_data">Q&A</a> 
+                If you have any questions or need to know how to fill in the fields, please read the official metadata available in the 
+                <a href="https://data.ny.gov/Government-Finance/Assembled-Workers-Compensation-Claims-Beginning-20/jshw-gkgu/about_data">NY.GOV website</a> 
                 <br><br>
                 To find the correct bucket for the WCIO Cause of Injury, Nature of Injury, and Part of Body, please refer to the link below:
                 <a href="https://www.guarantysupport.com/wp-content/uploads/2024/02/WCIO-Legacy.pdf">WCIO Codes</a> 
