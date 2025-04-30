@@ -1,46 +1,77 @@
-# ML Project - [WCB | Dashboard/Web App](https://mlproject-wcb-group33.streamlit.app/)
+<p align="center">
+   <a href="https://mlproject-wcb-group33.streamlit.app/">
+        <img src="https://github.com/Silvestre17/ML_WebApp_Group33/blob/main/static/WCB_Group33_Banner.png" alt="WCB Group33 WebApp Banner" width="800">
+    </a>
+</p>
 
-Work developed in the Machine Learning project of the Master's in Data Science and Advanced Analytics at NOVA IMS.
+# 📊 ML Project - WCB Claim Severity Dashboard/Web App 🚀
 
-> The main goal of this project is develop a multiclass classification model to predict the New York Workers' Compensation Board's decision on injury claims, optimize its performance, and provide additional insights through feature analysis and model improvements.
+This repository contains the code for the interactive Streamlit web application developed as part of the **Machine Learning** project for the **Master's in Data Science and Advanced Analytics** at **NOVA IMS**.
+
+> The web application serves as the deployment phase (CRISP-DM) of the project, providing an interface to interact with the developed classification model for predicting the severity of New York Workers' Compensation Board (NWCB) claims and exploring the underlying data.
+
+<p align="center">
+    <a href="https://mlproject-wcb-group33.streamlit.app/">
+        <img src="https://img.shields.io/badge/Live_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Streamlit App">
+    </a>
+     <a href="https://github.com/Silvestre17/ML_WebApp_Group33">
+        <img src="https://img.shields.io/badge/GitHub_Repo-100000?style=for-the-badge&logo=github&logoColor=white" alt="WebApp Repo">
+    </a>
+</p>
+<p align="center">
+    <a href="https://streamlit.io/"><img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit" /></a>
+    <a href="https://pandas.pydata.org/"><img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas" /></a>
+    <a href="https://plotly.com/python/"><img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white" alt="Plotly" /></a>
+    <a href="https://catboost.ai/"><img src="https://img.shields.io/badge/CatBoost-00AEEF?style=for-the-badge&logo=yandex&logoColor=white" alt="CatBoost" /></a>
+    <a href="https://scikit-learn.org/stable/"><img src="https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-Learn" /></a>
+     <a href="https://github.com/marcotcr/lime"><img src="https://img.shields.io/badge/LIME-4CAF50?style=for-the-badge&logo=python&logoColor=white" alt="LIME" /></a>
+</p>
+
+## 🔗 Relation to Main Project
+
+This web application represents the deployment and visualization component of our comprehensive **Machine Learning project** focused on predicting WCB claim severity. The main project repository contains all the data preprocessing, feature engineering, model training, evaluation notebooks, and detailed analysis reports.
+
+➡️ **Main Project Repository:** [**Silvestre17/ML_24.25_Project_Group33**](https://github.com/Silvestre17/ML_24.25_Project_Group33) ⬅️
 
 <br>
 
-#### Group 33
+## ✨ WebApp Overview
 
-- André Silvestre, 20240502
-- João Henriques, 20240499
-- Simone Genovese, 20241459
-- Steven Carlson, 20240554
-- Vinícius Pinto, 20211682
-- Zofia Wojcik, 20240654
-  
-<br>
+This interactive dashboard provides two main functionalities:
 
-### WebApp Overview
+1.  **🤖 Model Prediction:** Allows users to input claim details and receive a prediction for the `Claim Injury Type` based on the best-performing model developed in the main project (CatBoost). It also integrates LIME for explaining individual predictions.
+2.  **🔍 Data Exploration:** Enables interactive exploration of the cleaned dataset used for model training. Users can visualize distributions, trends, and relationships between different claim features.
 
-The app is divided into 2 sections:
+## 👥 Team (Group 33)
 
-1. **Model Prediction**: Prediction of the New York Workers' Compensation Board's decision on injury claims based on the input data provided by the user.
-2. **Data Exploration**: Analysis of the dataset used to train the model. The user can explore the dataset and understand the relationships between the features and the target variable.
+*   André Silvestre, 20240502
+*   João Henriques, 20240499
+*   Simone Genovese, 20241459
+*   Steven Carlson, 20240554
+*   Vinícius Pinto, 20211682
+*   Zofia Wojcik, 20240654
 
-#### Dashboard Setup Locally
+## ⚙️ Dashboard Setup Locally
 
-To run the dashboard, please follow the steps below:
+To run this Streamlit dashboard on your local machine, please follow these steps:
 
-1. Install the required libraries:
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Silvestre17/ML_WebApp_Group33.git
+    cd ML_WebApp_Group33
+    ```
 
-```bash
-pip install -r requirements.txt
-```
+2.  **Install the required libraries:**
+    *(It's recommended to use a virtual environment)*
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-2. `\cd` into the directory where the file `mlproject_group33_streamlit.py` is located.
+3.  **Run the Streamlit application:**
+    ```bash
+    streamlit run mlproject_group33_streamlit.py
+    ```
 
-3. Run the following command:
+4.  **Access the dashboard:** Open your web browser and navigate to the local URL provided in the terminal (usually `http://localhost:8501`).
 
-```bash
-streamlit run mlproject_group33_streamlit.py
-```
-
-4. Access the dashboard through the link provided in the terminal.
-5. Enjoy! 🚀🔎
+5.  Enjoy interacting with the model and data! 🚀🔎
