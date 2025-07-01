@@ -31,7 +31,7 @@ This repository contains the code for the interactive Streamlit web application 
 
 This web application represents the deployment and visualization component of our comprehensive **Machine Learning project** focused on predicting WCB claim severity. The main project repository contains all the data preprocessing, feature engineering, model training, evaluation notebooks, and detailed analysis reports.
 
-➡️ **Main Project Repository:** [**Silvestre17/ML_24.25_Project_Group33**](https://github.com/Silvestre17/ML_24.25_Project_Group33) ⬅️
+➡️ **Main Project Repository:** [**Silvestre17/ML_PredictingWorkersCompensationClaimSeverity_MasterProject**](https://github.com/Silvestre17/ML_PredictingWorkersCompensationClaimSeverity_MasterProject) ⬅️
 
 <br>
 
